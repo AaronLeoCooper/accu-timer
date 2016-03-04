@@ -44,6 +44,14 @@ Nope, not even jQuery.
 
 Although I've included the beautiful **Bulma** framework for the CSS in my html, this is absolutely not required.
 
+## Compatibility
+
+I haven't tested this in anything other than the latest version of Chrome, so use at your own risk.
+
+## Future development?
+
+Maybe. I created this little thing very quickly and for the purpose of using it in something in the near future, however I don't yet know whether more functionality is required. I just wanted to put this up somewhere for my future reference, as well as for anyone else who wants to incorporate and/or extend the functionality for their own purposes.
+
 ## Thanks to...
 
 Heavily inspired by _(just like most other accurate JS timers out there)_ **James Edward's** post here:
