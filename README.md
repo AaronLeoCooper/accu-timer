@@ -59,3 +59,5 @@ Heavily inspired by _(just like most other accurate JS timers out there)_ **Jame
 http://www.sitepoint.com/creating-accurate-timers-in-javascript/
 
 It's been around for a few years already, but still very useful. Credit to the guy!
+
+Also a big thanks to the fantastic **2359 Media** who I currently work with. You guys are awesome.
