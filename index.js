@@ -56,12 +56,14 @@ var RealTime = function(opts) {
 			//display the values
 			// form.ideal.value = real;
 
-			var seconds = Math.floor(ideal / 1000),
-					minutes = Math.floor(seconds / 60),
-					hours = Math.floor(minutes / 60);
+			var totSeconds = Math.floor(ideal / 1000);
 
-			el.S.value = seconds <= 60 ? seconds : 0;
-			el.M.value = minutes <= 60 ? minutes : 0;
+			var seconds = totSeconds % 60,
+					minutes = Math.floor(totSeconds / 60) % 60;
+					hours = Math.floor(totSeconds / 3600);
+
+			el.S.value = seconds;
+			el.M.value = minutes;
 			el.H.value = hours;
 
 			//calculate and display the difference
@@ -99,18 +101,18 @@ var RealTime = function(opts) {
 		},
 	};
 
-	$(options.startButton).click(function() {
+	document.querySelector(options.startButton).addEventListener('click', function() {
 		actions.start();
 	});
 
-	$(options.resetButton).click(function() {
+	document.querySelector(options.resetButton).addEventListener('click', function() {
 		actions.reset();
 	});
 
 };
 
 
-$(document).ready(function() {
+window.onload = function() {
 
 	var opts = {
 		seconds: '#input-seconds',
@@ -119,6 +121,7 @@ $(document).ready(function() {
 		startButton: '#start-timer',
 		resetButton: '#reset-timer',
 	};
+
 	var timer = new RealTime(opts);
 
-});
+};

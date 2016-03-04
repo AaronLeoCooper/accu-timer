@@ -3,19 +3,61 @@
   <head>
     <meta charset="utf-8">
     <title>Self Adjusting Timer</title>
+
+    <link rel="stylesheet" href="node_modules/bulma/css/bulma.min.css" />
+    <style>
+      body {
+        padding: 20px;
+      }
+      #timer-cont {
+        margin: 0 auto;
+        max-width: 400px;
+      }
+      .message, .message-header, .message-body {
+        border-radius: 0 !important;
+      }
+      .control.is-grouped label.button {
+        width: 100px;
+        text-align: left;
+      }
+    </style>
   </head>
   <body>
 
-    <input id="input-seconds" name="input-seconds" type="text" value="0" /> <span> seconds</span>
-    <input id="input-minutes" name="input-minutes" type="text" value="0" /> <span> minutes</span>
-    <input id="input-hours" name="input-hours" type="text" value="0" /> <span> hours</span>
-    <br>
-    <button id="start-timer">Start</button>
-    <button id="reset-timer">Reset</button>
+    <div id="timer-cont" class="card">
 
-    <!-- FYI: jQuery v2!! -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="index.js"></script>
+      <div class="message">
+
+        <div class="message-header">
+          A little timer
+        </div>
+
+        <div class="message-body">
+
+          <div class="control is-grouped">
+            <input class="input" id="input-seconds" name="input-seconds" type="text" value="0" /> <label class="button is-disabled"> seconds</label>
+          </div>
+
+          <div class="control is-grouped">
+            <input class="input" id="input-minutes" name="input-minutes" type="text" value="0" /> <label class="button is-disabled"> minutes</label>
+          </div>
+
+          <div class="control is-grouped">
+            <input class="input" id="input-hours" name="input-hours" type="text" value="0" /> <label class="button is-disabled"> hours</label>
+          </div>
+
+          <div class="control is-grouped is-text-centered">
+            <button class="button is-success" id="start-timer">Start</button>
+            <button class="button is-danger" id="reset-timer">Reset</button>
+          </div>
+
+          <script src="index.js"></script>
+
+        </div>
+
+      </div>
+
+    </div>
 
   </body>
 </html>
