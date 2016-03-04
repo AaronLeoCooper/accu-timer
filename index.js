@@ -7,7 +7,7 @@ function extendObj(target, other) {
 	return target;
 }
 
-var RealTime = function(opts) {
+var AccuTimer = function(opts) {
 
 	var self = this;
 
@@ -122,6 +122,6 @@ window.onload = function() {
 		resetButton: '#reset-timer',
 	};
 
-	var timer = new RealTime(opts);
+	var timer = new AccuTimer(opts);
 
 };

@@ -1,13 +1,13 @@
 {
-  "name": "self-adjusting-timer",
+  "name": "AccuTimer",
   "version": "1.0.0",
   "description": "A really basic self-adjusting timer",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "ALC",
-  "license": "ISC",
+  "author": "Aaron Leo Cooper",
+  "license": "WTFPL",
   "dependencies": {
     "bulma": "0.0.16"
   }
