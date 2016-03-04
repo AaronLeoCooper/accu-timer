@@ -30,6 +30,14 @@ var timer = new AccuTimer(opts);
 <button id="reset-timer">Reset</button>
 ```
 
+## No, I mean.. How does this work??
+
+Oh.
+
+For starters I'd _highly_ recommend having a look at [**James Edward's**](http://www.sitepoint.com/creating-accurate-timers-in-javascript/) fantastic article on the matter. He inspired me to create this micro-project, and many other web devs out there.
+
+But the short version is: it uses Javascript's native ``setTimeout`` to perpetuate the timer, paired with some simple code to compare against Javascript's ``Date`` object and correct itself.
+
 ## No dependencies
 
 Nope, not even jQuery.
@@ -38,8 +46,8 @@ Although I've included the beautiful **Bulma** framework for the CSS in my html,
 
 ## Thanks to...
 
-Heavily inspired by _(just like most other accurate JS timers out there)_ James Edward's post here:
+Heavily inspired by _(just like most other accurate JS timers out there)_ **James Edward's** post here:
 
 http://www.sitepoint.com/creating-accurate-timers-in-javascript/
 
-Credit to the guy!
+It's been around for a few years already, but still very useful. Credit to the guy!
