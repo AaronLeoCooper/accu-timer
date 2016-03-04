@@ -2,7 +2,8 @@
 
 Use this however you wish.
 
-`index.html` provides a simple timer example.
+`index.html` provides a simple timer example (as in the screenshot below).
+
 `index.js` is where the meat of the code is.
 
 ![AccuTimer](https://github.com/AaronLeoCooper/accu-timer/blob/master/screenie.png)
