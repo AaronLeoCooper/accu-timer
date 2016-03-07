@@ -1,3 +1,4 @@
+
 function extendObj(target, other) {
 	if ( typeof target === "object" && typeof other === "object" ) {
 		for ( var k in other ) {
@@ -17,17 +18,40 @@ var AccuTimer = function(opts) {
 		hours: '',
 		startButton: '',
 		resetButton: '',
+		fullTime: '',
+		startedAt: '',
 	};
 
 	var options = extendObj(defaults, opts);
 
-	var el = {};
-	el.S = document.querySelector(options.seconds);
-	el.M = document.querySelector(options.minutes);
-	el.H = document.querySelector(options.hours);
+	var seconds = 0,
+			minutes = 0,
+			hours = 0;
 
-	//global timeout references we can use to stop them
 	var timeout;
+
+	var validElStr = function(el) {
+		return typeof el === "string" && el.length > 0;
+	};
+
+	var delimiters = [' ', ':', ',', '.']
+
+	var format = function(format) {
+		var formattedTime = hours+":"+minutes+":"+seconds;
+		// TODO: implement masking feature to format the time correctly
+		// consider using moment library for this??
+		// if ( typeof format === "string" ) {
+		// 	var mask = format.split(' ');
+		// }
+		return formattedTime;
+	}
+
+	var el = {};
+	el.S = validElStr(options.seconds) ? document.querySelector(options.seconds) : null;
+	el.M = validElStr(options.minutes) ? document.querySelector(options.minutes) : null;
+	el.H = validElStr(options.hours) ? document.querySelector(options.hours) : null;
+	el.fullTime = validElStr(options.fullTime) ? document.querySelector(options.fullTime) : null;
+	el.startedAt = validElStr(options.startedAt) ? document.querySelector(options.startedAt) : null;
 
 	//timer demo function with normal/self-adjusting argument
 	var timer = function (morework) {
@@ -37,7 +61,9 @@ var AccuTimer = function(opts) {
 				counter = 0,
 				start = new Date().getTime();
 
-		//timer instance function
+		el.startedAt.innerHTML = "Started at: " + start;
+
+		// This is the main loop where the bulk of the logic takes place
 		var instance = function () {
 
 			//if the morework flag is true
@@ -58,13 +84,14 @@ var AccuTimer = function(opts) {
 
 			var totSeconds = Math.floor(ideal / 1000);
 
-			var seconds = totSeconds % 60,
-					minutes = Math.floor(totSeconds / 60) % 60;
-					hours = Math.floor(totSeconds / 3600);
+			seconds = totSeconds % 60;
+			minutes = Math.floor(totSeconds / 60) % 60;
+			hours = Math.floor(totSeconds / 3600);
 
-			el.S.value = seconds;
-			el.M.value = minutes;
-			el.H.value = hours;
+			if ( el.S ) el.S.value = seconds;
+			if ( el.M ) el.M.value = minutes;
+			if ( el.H ) el.H.value = hours;
+			if ( el.fullTime ) el.fullTime.value = format('h:m:s');
 
 			//calculate and display the difference
 			var diff = (ideal - real);
@@ -109,8 +136,17 @@ var AccuTimer = function(opts) {
 		actions.reset();
 	});
 
-};
+	self.getTime = function(opts) {
+		return hours + "h " + minutes + "m " + seconds + "s";
+	};
 
+	self.setTime = function(opts) {
+		hours = opts.h;
+		minutes = opts.h;
+		seconds = opts.h;
+	};
+
+};
 
 window.onload = function() {
 
@@ -120,6 +156,8 @@ window.onload = function() {
 		hours: '#input-hours',
 		startButton: '#start-timer',
 		resetButton: '#reset-timer',
+		fullTime: '#input-fulltime',
+		startedAt: '#started-at',
 	};
 
 	var timer = new AccuTimer(opts);

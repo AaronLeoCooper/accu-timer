@@ -46,12 +46,20 @@
             <input class="input" id="input-hours" name="input-hours" type="text" value="0" /> <label class="button is-disabled"> hours</label>
           </div>
 
+          <div class="control is-grouped">
+            <label class="button is-disabled"> Total time</label> <input class="input" id="input-fulltime" name="input-fulltime" type="text" value="0:0:0" />
+          </div>
+
           <div class="control is-grouped is-text-centered">
             <button class="button is-success" id="start-timer">Start</button>
             <button class="button is-danger" id="reset-timer">Reset</button>
           </div>
 
-          <script src="index.js"></script>
+          <div class="control">
+            <span id="started-at"></span>
+          </div>
+
+          <script src="accutimer.js"></script>
 
         </div>
 
